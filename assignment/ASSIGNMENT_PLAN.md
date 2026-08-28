@@ -160,39 +160,44 @@ actual build, same as it did for Pizza.
 
 ## Phase 4 — Restrictions & defined classes
 
-- [ ] **11. `Product` restriction**: `hasBrand some Brand` (necessary
+- [x] **11. `Product` restriction**: `hasBrand some Brand` (necessary
   condition, like `Pizza SubClassOf hasBase some PizzaBase`).
-- [ ] **12. Simple defined classes** (existential, like `CheesyPizza`):
+- [x] **12. Simple defined classes** (existential, like `CheesyPizza`):
   - `SmartProduct ≡ Product and (hasFeature some SmartFeature)`
   - `EcoFriendlyProduct ≡ Product and (hasEnergyRating some
     (APlusPlusPlusRating or APlusPlusRating))`
-- [ ] **13. Universal-restriction defined class** (the real
+- [x] **13. Universal-restriction defined class** (the real
   `VegetarianPizza` analog — **needs closure axioms**, see Phase 5):
   `FullySmartProduct ≡ Product and (hasFeature only (SmartFeature or
   WiFiFeature or BluetoothFeature))`
 - [ ] **14. Nested restriction** (realistic `SpicyPizza`-style nesting,
   using the real showroom structure): `ColomboAvailableProduct ≡ Product
-  and (availableAt some (Showroom and (locatedIn value Colombo)))`
-- [ ] **15. Datatype facet restriction** (OWL 2 territory Pizza never
+  and (availableAt some (Showroom and (locatedIn value Colombo)))`.
+  **Deferred to Phase 6** — needs the `Colombo` individual first (empty
+  placeholder class created).
+- [x] **15. Datatype facet restriction** (OWL 2 territory Pizza never
   used): `PremiumProduct ≡ Product and (hasPrice some
   xsd:decimal[>= 150000])`
-- [ ] **16. Complement class**: `BudgetProduct ≡ Product and (not
+- [x] **16. Complement class**: `BudgetProduct ≡ Product and (not
   PremiumProduct)`, disjoint with `PremiumProduct`.
-- [ ] **17. Cardinality restriction**: `FullyLoadedProduct ≡ Product and
+- [x] **17. Cardinality restriction**: `FullyLoadedProduct ≡ Product and
   (hasFeature min 3)`.
-- [ ] **18. Named "product line" classes** — realistic, grounded in
-  Abans' actual catalog (Apple is a real top-level category; budget
-  Android phones and inverter appliances are real, commonly-advertised
-  segments), each combining multiple restrictions including a `hasValue`
-  restriction, mutually disjoint:
-  - `PremiumAppleProduct ≡ MobileDevice and (hasBrand value Apple) and
-    (hasFeature some SmartFeature) and (hasPrice some
-    xsd:decimal[>= 200000])`
-  - `BudgetSmartphone ≡ SmartMobilePhone and (hasFeature some
-    SmartFeature) and (hasPrice some xsd:decimal[<= 50000])`
-  - `InverterHomeAppliance ≡ HomeAppliance and (hasFeature some
+- [x] **18. Named "product line" classes** — realistic, grounded in
+  Abans' actual catalog, mutually disjoint:
+  - `BudgetSmartphone ≡ 'Smart Mobile Phones' and (hasFeature some
+    SmartFeature) and (hasPrice some xsd:decimal[<= 50000])` — done
+  - `InverterHomeAppliance ≡ 'Home Appliances' and (hasFeature some
     InverterFeature) and (hasEnergyRating some (APlusPlusRating or
-    APlusPlusPlusRating))`
+    APlusPlusPlusRating))` — done, disjoint with `BudgetSmartphone`
+  - `PremiumAppleProduct ≡ 'Mobile Phones & Devices' and (hasBrand value
+    Apple) and (hasFeature some SmartFeature) and (hasPrice some
+    xsd:decimal[>= 200000])` — **deferred to Phase 6**, needs `Apple`
+    individual (empty placeholder class created)
+  - **Discovery mid-build**: after Phase 2's `rdfs:label` annotations,
+    Protégé renders/parses by label, not raw class ID — any labeled
+    class with a multi-word label must be typed in single quotes (e.g.
+    `'Home Appliances'`) in the Manchester expression editor from here
+    on. Single-word labels like `TV` are unaffected.
 - **Commit checkpoint**: `feat(ontology): add restrictions and defined
   classes for automatic classification`
 

@@ -232,11 +232,71 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#BudgetProduct -->
+
+    <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#BudgetProduct">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#Product"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://www.abans.lk/ontology/abans.owl#PremiumProduct"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
+        <owl:disjointWith rdf:resource="http://www.abans.lk/ontology/abans.owl#PremiumProduct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#BudgetSmartphone -->
+
+    <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#BudgetSmartphone">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#SmartMobilePhone"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasFeature"/>
+                        <owl:someValuesFrom rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasPrice"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">50000</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartMobilePhone"/>
+        <owl:disjointWith rdf:resource="http://www.abans.lk/ontology/abans.owl#InverterHomeAppliance"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#City -->
 
     <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#City">
         <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#Location"/>
         <owl:disjointWith rdf:resource="http://www.abans.lk/ontology/abans.owl#Province"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#ColomboAvailableProduct -->
+
+    <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#ColomboAvailableProduct">
+        <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
     </owl:Class>
     
 
@@ -255,6 +315,32 @@
     <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#DesktopAndMonitor">
         <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#Computer"/>
         <rdfs:label>Desktops &amp; Monitors</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#EcoFriendlyProduct -->
+
+    <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#EcoFriendlyProduct">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#Product"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasEnergyRating"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#APlusPlusPlusRating"/>
+                                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#APlusPlusRating"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
     </owl:Class>
     
 
@@ -292,6 +378,52 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#FullyLoadedProduct -->
+
+    <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#FullyLoadedProduct">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#Product"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasFeature"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#FullySmartProduct -->
+
+    <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#FullySmartProduct">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#Product"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasFeature"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#BluetoothFeature"/>
+                                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
+                                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#WiFiFeature"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#HomeAppliance -->
 
     <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#HomeAppliance">
@@ -305,6 +437,36 @@
 
     <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#InverterFeature">
         <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#Feature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#InverterHomeAppliance -->
+
+    <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#InverterHomeAppliance">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#HomeAppliance"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasEnergyRating"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#APlusPlusPlusRating"/>
+                                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#APlusPlusRating"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasFeature"/>
+                        <owl:someValuesFrom rdf:resource="http://www.abans.lk/ontology/abans.owl#InverterFeature"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#HomeAppliance"/>
     </owl:Class>
     
 
@@ -351,9 +513,52 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#PremiumAppleProduct -->
+
+    <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#PremiumAppleProduct">
+        <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#MobileDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#PremiumProduct -->
+
+    <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#PremiumProduct">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#Product"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasPrice"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">150000</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#Product -->
 
-    <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#Product"/>
+    <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#Product">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasBrand"/>
+                <owl:someValuesFrom rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
@@ -420,6 +625,25 @@
     <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#SmartMobilePhone">
         <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#MobileDevice"/>
         <rdfs:label>Smart Mobile Phones</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#SmartProduct -->
+
+    <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#SmartProduct">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#Product"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasFeature"/>
+                        <owl:someValuesFrom rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
     </owl:Class>
     
 
