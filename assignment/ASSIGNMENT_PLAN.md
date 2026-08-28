@@ -329,17 +329,16 @@ phase, per our own "never delete a skipped step" policy.
   Done a bit ahead of schedule during Phase 9 (needed the same tooling
   to verify the competency questions after Protégé's SPARQL tab
   misbehaved).
-- [ ] **32. `backend/main.py`** — loads `abans.owl` into an in-memory
-  `rdflib.Graph()` at startup. Endpoints:
-  - `GET /health` — trivial healthcheck
-  - `GET /competency-questions` — list of the 14 CQs (id + text)
-  - `GET /competency-questions/{id}/run` — executes that CQ's SPARQL,
-    returns JSON rows
-  - `POST /sparql` — accepts raw SPARQL text, executes it, returns JSON
-    rows (ad-hoc/advanced demo path)
-- [ ] **33. Verify locally** — `uvicorn backend.main:app --reload`
-  (port 8000), hit each endpoint, confirm CQ1-CQ14 all return non-empty,
-  correct results.
+- [x] **32. `backend/main.py`** — loads `abans.owl` into an in-memory
+  `rdflib.Graph()` at startup. Endpoints implemented: `GET /health`,
+  `GET /competency-questions`, `GET /competency-questions/{id}/run`,
+  `POST /sparql`.
+- [x] **33. Verify locally** — ran on port 8010 (8000 was held by a
+  leftover process from an earlier attempt). Verified: `/health` reports
+  889 triples; `/competency-questions` lists all 14; `cq5`/`cq11` runs
+  return correct results matching the Phase 9 verification; unknown CQ id
+  correctly 404s; raw `/sparql` passthrough works (confirmed 18 total
+  product individuals both ways).
 - **Commit checkpoint**: `feat(backend): add FastAPI service with SPARQL
   competency-question endpoints`
 
