@@ -268,13 +268,22 @@ phase, per our own "never delete a skipped step" policy.
 
 ## Phase 8 — Export
 
-- [ ] **27. Bake in inferred axioms** — Protégé's **File → "Export
-  inferred axioms as ontology"** (or synchronize + merge), so reasoner-
-  derived `rdf:type` facts (SmartProduct, PremiumProduct, etc.) are
-  physically present as triples. **Required** for the SPARQL backend
-  below, which has no OWL reasoner of its own.
-- [ ] **28. Final export** — save as `assignment/abans.owl` (RDF/XML).
-  **This alone satisfies the assignment's pass bar.**
+- [x] **27. Bake in inferred axioms** — used Protégé's **File → Export
+  inferred axioms as ontology** wizard: included Subclasses, Equivalent
+  classes, Sub/Equivalent object+data properties, Class assertions
+  (individual types), and Property assertions (property values — needed
+  so inverse properties like `stocks` are queryable without a reasoner);
+  included both asserted logical axioms and annotations; set the
+  Ontology IRI back to `http://www.abans.lk/ontology/abans.owl`; exported
+  directly to `assignment/abans.owl`.
+- [x] **28. Final export** — verified via grep: `Mystery_Smart_Gadget`'s
+  baked-in types are exactly `BudgetProduct`/`MobileDevice`/`Product`/
+  `SmartMobilePhone`/`SmartProduct`, correctly missing
+  `FullySmartProduct`/`BasicProduct` — matches the live reasoner check.
+  **This satisfies the assignment's pass bar.** (Minor cosmetic note:
+  `hasWarrantyYears` values serialize as `xsd:decimal` instead of the
+  declared `xsd:integer` range — harmless, integer is an XSD subtype of
+  decimal, SPARQL numeric filters unaffected.)
 - **Commit checkpoint**: `feat(ontology): export final ontology with
   materialized inferred axioms`
 
