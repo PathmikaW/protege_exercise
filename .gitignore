@@ -3,3 +3,6 @@ desktop.ini
 .DS_Store
 *.owl.lock
 *.owl.bak
+assignment/.venv/
+assignment/__pycache__/
+**/__pycache__/
