@@ -211,13 +211,11 @@ optional here either.
   (`PremiumAppleProduct` will get the same closure once it exists in
   Phase 6.) Confirmed **not** applied to `InverterHomeAppliance` — see the
   unsatisfiability gotcha noted in Phase 4.
-- [ ] **20. Deliberately unclosed individual** — **moved to Phase 6**,
-  needs real individuals to exist. Create one product individual with
-  `hasFeature some SmartFeature` asserted but **not** closed. Classify and
-  confirm: it lands under `SmartProduct` (provable positive claim) but in
-  **neither** `FullySmartProduct` nor its complement `BasicProduct ≡
-  Product and (not FullySmartProduct)` (disjoint with `FullySmartProduct`)
-  — the OWA payoff, same shape as `UnclosedPizza`.
+- [x] **20. Deliberately unclosed individual** — `Mystery_Smart_Gadget`
+  (type `SmartMobilePhone`), single `hasFeature` assertion, no closure.
+  Created `BasicProduct ≡ Product and (not FullySmartProduct)`, disjoint
+  with `FullySmartProduct`. Reasoner run pending (Step 24) to confirm the
+  OWA payoff.
 - **Commit checkpoint**: `feat(ontology): add closure axioms and open
   world assumption demonstration`
 
@@ -232,11 +230,19 @@ optional here either.
   WesternProvince), `Kandy` (locatedIn CentralProvince), `Galle` (locatedIn
   SouthernProvince); Showrooms `Abans_Colombo_City` (locatedIn Colombo),
   `Abans_Kandy` (locatedIn Kandy), `Abans_Galle` (locatedIn Galle).
-- [ ] **23. Product individuals** — ~15-20 across the 4 categories, each
-  with concrete `hasBrand`/`hasPrice`/`hasWarrantyYears`/`hasFeature`/
-  `hasEnergyRating`/`availableAt`, spread across price/brand/rating
-  combinations so the competency questions below are non-trivial to
-  answer.
+- [x] **23. Product individuals** — 17 real products across the 4
+  categories: TV (`LG_43_LED_TV`, `Samsung_55_Smart_LED_TV`,
+  `LG_65_OLED_TV`, `Toshiba_50_UHD_TV`); Home Appliance
+  (`Samsung_Inverter_AC_12000BTU`, `Haier_Double_Door_Refrigerator`,
+  `Whirlpool_Front_Load_Washing_Machine`, `Haier_NonInverter_AC_9000BTU`);
+  Mobile Device (`iPhone_15_Pro`, `Redmi_Note_13`,
+  `Philips_Feature_Phone`, `Samsung_Galaxy_Watch`, `Xiaomi_Smart_Band`);
+  Computer (`HP_Pavilion_Laptop`, `Lenovo_IdeaPad_Laptop`,
+  `Lenovo_Desktop_Monitor_Combo`, `HP_Tablet`) — each with concrete brand/
+  price/warranty/features/availability, spread across price and feature
+  combinations so the competency questions are non-trivial to answer.
+  Energy ratings only asserted for TV/HomeAppliance (matches real Abans
+  site behavior — phones/computers don't display that attribute there).
 - [ ] **24. Reclassify & inspect** — run the reasoner, confirm individuals
   land under the right defined classes automatically.
 - **Commit checkpoint**: `feat(ontology): add brand, location, and product
