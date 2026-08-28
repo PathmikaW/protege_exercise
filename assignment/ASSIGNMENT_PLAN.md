@@ -141,17 +141,17 @@ actual build, same as it did for Pizza.
 
 ## Phase 3 — Properties
 
-- [ ] **8. Object properties (product-facing)**: `hasBrand`
+- [x] **8. Object properties (product-facing)**: `hasBrand`
   (Product→Brand, functional), `hasFeature` (Product→Feature),
   `hasEnergyRating` (Product→EnergyRatingPartition, functional) — with
-  inverses `isBrandOf`, `isFeatureOf`, `isEnergyRatingOf`.
-- [ ] **9. Object properties (location-facing — the real transitivity
-  source)**: `locatedIn` (Showroom/City→City/Province, **Transitive**),
-  inverse `contains` (**also Transitive**, per the lesson that inverses of
-  transitive properties should be transitive too); `availableAt`
-  (Product→Showroom, not functional — a product can be stocked at many
-  showrooms), inverse `stocks` (Showroom→Product).
-- [ ] **10. Data properties**: `hasPrice` (xsd:decimal, functional),
+  inverses `isBrandOf`, `isFeatureOf`, `isEnergyRatingOf`. Caught and
+  fixed a mistake mid-build: all three properties' ranges had been piled
+  onto `hasFeature` as an intersection instead of set individually.
+- [x] **9. Object properties (location-facing — the real transitivity
+  source)**: `locatedIn` (Location→Location, **Transitive**),
+  inverse `contains` (**also Transitive**); `availableAt`
+  (Product→Showroom, not functional), inverse `stocks` (Showroom→Product).
+- [x] **10. Data properties**: `hasPrice` (xsd:decimal, functional),
   `hasWarrantyYears` (xsd:integer, functional), `hasCapacity`
   (xsd:decimal, optional — litres/kg/BTU by category), `hasScreenSize`
   (xsd:decimal, optional — TVs/laptops, inches).

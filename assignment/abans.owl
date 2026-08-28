@@ -13,6 +13,154 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#availableAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.abans.lk/ontology/abans.owl#availableAt">
+        <owl:inverseOf rdf:resource="http://www.abans.lk/ontology/abans.owl#stocks"/>
+        <rdfs:domain rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.abans.lk/ontology/abans.owl#Showroom"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#contains -->
+
+    <owl:ObjectProperty rdf:about="http://www.abans.lk/ontology/abans.owl#contains">
+        <owl:inverseOf rdf:resource="http://www.abans.lk/ontology/abans.owl#locatedIn"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#hasBrand -->
+
+    <owl:ObjectProperty rdf:about="http://www.abans.lk/ontology/abans.owl#hasBrand">
+        <owl:inverseOf rdf:resource="http://www.abans.lk/ontology/abans.owl#isBrandOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#hasEnergyRating -->
+
+    <owl:ObjectProperty rdf:about="http://www.abans.lk/ontology/abans.owl#hasEnergyRating">
+        <owl:inverseOf rdf:resource="http://www.abans.lk/ontology/abans.owl#isEnergyRatingOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.abans.lk/ontology/abans.owl#EnergyRatingPartition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#hasFeature -->
+
+    <owl:ObjectProperty rdf:about="http://www.abans.lk/ontology/abans.owl#hasFeature">
+        <owl:inverseOf rdf:resource="http://www.abans.lk/ontology/abans.owl#isFeatureOf"/>
+        <rdfs:domain rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.abans.lk/ontology/abans.owl#Feature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#isBrandOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.abans.lk/ontology/abans.owl#isBrandOf"/>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#isEnergyRatingOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.abans.lk/ontology/abans.owl#isEnergyRatingOf"/>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#isFeatureOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.abans.lk/ontology/abans.owl#isFeatureOf"/>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#locatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.abans.lk/ontology/abans.owl#locatedIn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.abans.lk/ontology/abans.owl#Location"/>
+        <rdfs:range rdf:resource="http://www.abans.lk/ontology/abans.owl#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#stocks -->
+
+    <owl:ObjectProperty rdf:about="http://www.abans.lk/ontology/abans.owl#stocks">
+        <rdfs:domain rdf:resource="http://www.abans.lk/ontology/abans.owl#Showroom"/>
+        <rdfs:range rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#hasCapacity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.abans.lk/ontology/abans.owl#hasCapacity">
+        <rdfs:domain rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#hasPrice -->
+
+    <owl:DatatypeProperty rdf:about="http://www.abans.lk/ontology/abans.owl#hasPrice">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#hasScreenSize -->
+
+    <owl:DatatypeProperty rdf:about="http://www.abans.lk/ontology/abans.owl#hasScreenSize">
+        <rdfs:domain rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#hasWarrantyYears -->
+
+    <owl:DatatypeProperty rdf:about="http://www.abans.lk/ontology/abans.owl#hasWarrantyYears">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
