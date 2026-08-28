@@ -361,10 +361,12 @@ phase, per our own "never delete a skipped step" policy.
 
 ## Phase 12 — Wrap-up
 
-- [ ] **36. Final reasoner run** — confirm no inconsistencies (aside from
-  the deliberate probe class if included), review ontology metrics.
-- [ ] **37. `.gitignore` sanity check** — confirm `.venv/`/`__pycache__/`
-  were never actually committed (should already be true from step 31).
+- [x] **36. Final reasoner run** — already confirmed inconsistency-free in
+  Step 24 (Phase 6); no probe class exists this time (Phase 7 was
+  skipped by decision), so no deliberate red class to expect either.
+- [x] **37. `.gitignore` sanity check** — confirmed via `git status`
+  after every commit since Phase 10: `.venv/`/`__pycache__/` never once
+  appeared as untracked/staged.
 - [ ] **38. (If required) Short write-up** — check assignment brief for
   whether a written report is separately required beyond the OWL file +
   queries + front end.
