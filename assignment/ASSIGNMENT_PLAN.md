@@ -344,13 +344,18 @@ phase, per our own "never delete a skipped step" policy.
 
 ## Phase 11 — Frontend (Streamlit)
 
-- [ ] **34. `frontend/app.py`** — sidebar dropdown of the 14 CQs → "Run"
-  button → calls the backend `/competency-questions/{id}/run` → renders
-  results as `st.dataframe`. Second tab: raw SPARQL text box → calls
-  `/sparql` → same table rendering.
-- [ ] **35. Verify locally** — `streamlit run frontend/app.py`
-  (port 8501), confirm every CQ renders correctly end-to-end through the
-  UI.
+- [x] **34. `frontend/app.py`** — two-tab UI (Competency Questions / Raw
+  SPARQL), each with a two-column layout (controls left, results right)
+  so results never require scrolling past the controls. Sidebar holds
+  backend URL + live connection status + ontology stats (triple/
+  individual counts). Abans' real pink/magenta brand color applied via
+  Streamlit's native `.streamlit/config.toml` theme (not CSS hacks, which
+  caused a text-contrast bug on the first attempt). Each CQ shows its
+  query type and a collapsible SPARQL preview.
+- [x] **35. Verify locally** — ran on port 8511 against the backend on
+  8010. Verified end-to-end: CQ1 (LG products), CQ3 (WiFi products), CQ5
+  (SmartProduct) all rendered correctly with live screenshots confirming
+  the full round-trip and the UI polish (theme, layout, stats).
 - **Commit checkpoint**: `feat(frontend): add Streamlit UI for competency
   question queries`
 

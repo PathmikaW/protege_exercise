@@ -19,6 +19,7 @@ PREFIX = "PREFIX abans: <http://www.abans.lk/ontology/abans.owl#>\n"
 COMPETENCY_QUESTIONS = {
     "cq1": {
         "text": "What products does brand X sell? (LG)",
+        "type": "Simple join",
         "query": """
             SELECT ?product WHERE {
               ?product abans:hasBrand abans:LG .
@@ -26,6 +27,7 @@ COMPETENCY_QUESTIONS = {
     },
     "cq2": {
         "text": "What TVs cost less than Rs. 150,000?",
+        "type": "Filter",
         "query": """
             SELECT ?product ?price WHERE {
               ?product a abans:TV .
@@ -35,6 +37,7 @@ COMPETENCY_QUESTIONS = {
     },
     "cq3": {
         "text": "Which products have WiFi?",
+        "type": "Simple join",
         "query": """
             SELECT ?product WHERE {
               ?product abans:hasFeature ?feature .
@@ -43,6 +46,7 @@ COMPETENCY_QUESTIONS = {
     },
     "cq4": {
         "text": "Which products have 2+ years warranty?",
+        "type": "Filter",
         "query": """
             SELECT ?product ?years WHERE {
               ?product abans:hasWarrantyYears ?years .
@@ -51,6 +55,7 @@ COMPETENCY_QUESTIONS = {
     },
     "cq5": {
         "text": "Which products are classified as Smart?",
+        "type": "Reasoner-inferred class",
         "query": """
             SELECT ?product WHERE {
               ?product a abans:SmartProduct .
@@ -58,6 +63,7 @@ COMPETENCY_QUESTIONS = {
     },
     "cq6": {
         "text": "Which products are Eco-Friendly (A++/A+++)?",
+        "type": "Reasoner-inferred class",
         "query": """
             SELECT ?product WHERE {
               ?product a abans:EcoFriendlyProduct .
@@ -65,6 +71,7 @@ COMPETENCY_QUESTIONS = {
     },
     "cq7": {
         "text": "Which products are Premium (price >= 150,000)?",
+        "type": "Reasoner-inferred + datatype filter",
         "query": """
             SELECT ?product ?price WHERE {
               ?product a abans:PremiumProduct .
@@ -73,6 +80,7 @@ COMPETENCY_QUESTIONS = {
     },
     "cq8": {
         "text": "Which products are Budget (complement of Premium)?",
+        "type": "Reasoner-inferred, complement class",
         "query": """
             SELECT ?product WHERE {
               ?product a abans:BudgetProduct .
@@ -80,6 +88,7 @@ COMPETENCY_QUESTIONS = {
     },
     "cq9": {
         "text": "How many products exist per category?",
+        "type": "Aggregate",
         "query": """
             SELECT ?category (COUNT(?product) AS ?count) WHERE {
               ?product a ?category .
@@ -89,6 +98,7 @@ COMPETENCY_QUESTIONS = {
     },
     "cq10": {
         "text": "What is the average price per category?",
+        "type": "Aggregate",
         "query": """
             SELECT ?category (AVG(?price) AS ?avgPrice) WHERE {
               ?product a ?category .
@@ -99,6 +109,7 @@ COMPETENCY_QUESTIONS = {
     },
     "cq11": {
         "text": "Which brands appear in more than one category?",
+        "type": "Multi-hop join",
         "query": """
             SELECT ?brand (COUNT(DISTINCT ?category) AS ?catCount) WHERE {
               ?product abans:hasBrand ?brand .
@@ -110,6 +121,7 @@ COMPETENCY_QUESTIONS = {
     },
     "cq12": {
         "text": "Which products have 3+ features (Fully-Loaded)?",
+        "type": "Reasoner-inferred, cardinality",
         "query": """
             SELECT ?product WHERE {
               ?product a abans:FullyLoadedProduct .
@@ -117,6 +129,7 @@ COMPETENCY_QUESTIONS = {
     },
     "cq13": {
         "text": "Which products are available at showrooms in the Western Province?",
+        "type": "Transitive-location join",
         "query": """
             SELECT ?product ?showroom WHERE {
               ?product abans:availableAt ?showroom .
@@ -125,6 +138,7 @@ COMPETENCY_QUESTIONS = {
     },
     "cq14": {
         "text": "Which showrooms stock LG_43_LED_TV, and in which city/province?",
+        "type": "Multi-hop over a transitive property",
         "query": """
             SELECT ?showroom ?city ?province WHERE {
               abans:LG_43_LED_TV abans:availableAt ?showroom .
@@ -169,12 +183,21 @@ def run_sparql(query_body: str) -> list[dict]:
 
 @app.get("/health")
 def health() -> dict:
-    return {"status": "ok", "triples": len(graph)}
+    query = (
+        "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n"
+        "SELECT (COUNT(DISTINCT ?i) AS ?n) WHERE { ?i a owl:NamedIndividual . }"
+    )
+    result = list(graph.query(query))
+    individual_count = int(result[0][0]) if result else 0
+    return {"status": "ok", "triples": len(graph), "individuals": individual_count}
 
 
 @app.get("/competency-questions")
 def list_competency_questions() -> dict:
-    return {cq_id: cq["text"] for cq_id, cq in COMPETENCY_QUESTIONS.items()}
+    return {
+        cq_id: {"text": cq["text"], "type": cq["type"], "query": cq["query"].strip()}
+        for cq_id, cq in COMPETENCY_QUESTIONS.items()
+    }
 
 
 @app.get("/competency-questions/{cq_id}/run")
@@ -182,7 +205,12 @@ def run_competency_question(cq_id: str) -> dict:
     cq = COMPETENCY_QUESTIONS.get(cq_id)
     if cq is None:
         raise HTTPException(status_code=404, detail=f"Unknown competency question: {cq_id}")
-    return {"text": cq["text"], "results": run_sparql(cq["query"])}
+    return {
+        "text": cq["text"],
+        "type": cq["type"],
+        "query": cq["query"].strip(),
+        "results": run_sparql(cq["query"]),
+    }
 
 
 class SparqlRequest(BaseModel):
