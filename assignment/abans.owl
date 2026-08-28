@@ -143,6 +143,7 @@
     <!-- http://www.abans.lk/ontology/abans.owl#hasScreenSize -->
 
     <owl:DatatypeProperty rdf:about="http://www.abans.lk/ontology/abans.owl#hasScreenSize">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     </owl:DatatypeProperty>
@@ -842,6 +843,30 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#BluetoothFeature_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#BluetoothFeature_2">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#BluetoothFeature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#BluetoothFeature_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#BluetoothFeature_3">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#BluetoothFeature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#BluetoothFeature_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#BluetoothFeature_4">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#BluetoothFeature"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#CentralProvince -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#CentralProvince">
@@ -1004,6 +1029,31 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#Philips_Feature_Phone -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Philips_Feature_Phone">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#FeaturePhone"/>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Galle"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#Philips"/>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8500</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</abans:hasWarrantyYears>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Redmi_Note_13 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Redmi_Note_13">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartMobilePhone"/>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Kandy"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#Xiaomi"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature_4"/>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">45000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</abans:hasWarrantyYears>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#Samsung -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Samsung">
@@ -1027,6 +1077,20 @@
         <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature_1"/>
         <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">145000</abans:hasPrice>
         <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</abans:hasWarrantyYears>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Samsung_Galaxy_Watch -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Samsung_Galaxy_Watch">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartBandAndWatch"/>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Colombo_City"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#Samsung"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#BluetoothFeature_3"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature_5"/>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">55000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</abans:hasWarrantyYears>
     </owl:NamedIndividual>
     
 
@@ -1062,6 +1126,30 @@
     <!-- http://www.abans.lk/ontology/abans.owl#SmartFeature_2 -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#SmartFeature_2">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#SmartFeature_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#SmartFeature_3">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#SmartFeature_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#SmartFeature_4">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#SmartFeature_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#SmartFeature_5">
         <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
     </owl:NamedIndividual>
     
@@ -1154,10 +1242,46 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#WiFiFeature_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#WiFiFeature_4">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#Xiaomi -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Xiaomi">
         <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Xiaomi_Smart_Band -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Xiaomi_Smart_Band">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartBandAndWatch"/>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Kandy"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#Xiaomi"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#BluetoothFeature_4"/>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</abans:hasWarrantyYears>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#iPhone_15_Pro -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#iPhone_15_Pro">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartMobilePhone"/>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Colombo_City"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#Apple"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#BluetoothFeature_2"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature_3"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature_4"/>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">385000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</abans:hasWarrantyYears>
     </owl:NamedIndividual>
     
 
