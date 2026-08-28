@@ -308,20 +308,27 @@ phase, per our own "never delete a skipped step" policy.
 | CQ13 | Which products are available at showrooms in the Western Province? | Transitive-location join |
 | CQ14 | Which showrooms stock a given product, and in which city/province? | Multi-hop join over a transitive property |
 
-- [ ] **29. Write SPARQL for each CQ** (once Phase 6's ABox is in place).
-- [ ] **30. Test each query in Protégé's SPARQL Query tab** — minimum
-  viable path to the "score more" tier, no front end required.
+- [x] **29. Write SPARQL for each CQ** — all 14 written to
+  `assignment/competency_questions.md`.
+- [x] **30. Test each query** — Protégé's SPARQL Query tab had a UI bug
+  (text area wouldn't accept input), so verified instead via a Python/
+  rdflib script (`assignment/test_queries.py`) against the exported
+  `abans.owl` — arguably a stronger test, since it proves compatibility
+  with the actual engine the backend will use. All 14 queries returned
+  correct, sensible results on the first try.
 - **Commit checkpoint**: `docs(assignment): finalize competency questions
   and SPARQL queries`
 
 ## Phase 10 — Backend (FastAPI + rdflib)
 
-- [ ] **31. Update `.gitignore` first** — add `.venv/` and `__pycache__/`
-  **before** creating the virtual environment below, so it's never at risk
-  of being accidentally staged in the commits that follow this phase.
-- [ ] **31b. Create the virtual environment** (see Environment & process
-  policy above) inside `assignment/`, install `fastapi`, `rdflib`,
-  `uvicorn`.
+- [x] **31. Update `.gitignore` first** — added `assignment/.venv/` and
+  `__pycache__/` patterns before creating the virtual environment below.
+- [x] **31b. Create the virtual environment** — created inside
+  `assignment/.venv`, installed `fastapi`, `rdflib`, `uvicorn`,
+  `streamlit`, `requests`; froze `requirements.txt` (46 packages).
+  Done a bit ahead of schedule during Phase 9 (needed the same tooling
+  to verify the competency questions after Protégé's SPARQL tab
+  misbehaved).
 - [ ] **32. `backend/main.py`** — loads `abans.owl` into an in-memory
   `rdflib.Graph()` at startup. Endpoints:
   - `GET /health` — trivial healthcheck
