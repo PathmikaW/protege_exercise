@@ -884,6 +884,60 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#Haier_Double_Door_Refrigerator -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Haier_Double_Door_Refrigerator">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Refrigerator"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasEnergyRating"/>
+                <owl:someValuesFrom rdf:resource="http://www.abans.lk/ontology/abans.owl#APlusRating"/>
+            </owl:Restriction>
+        </rdf:type>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Kandy"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#Haier"/>
+        <abans:hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">450</abans:hasCapacity>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">210000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</abans:hasWarrantyYears>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Haier_NonInverter_AC_9000BTU -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Haier_NonInverter_AC_9000BTU">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#AirConditioner"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasEnergyRating"/>
+                <owl:someValuesFrom rdf:resource="http://www.abans.lk/ontology/abans.owl#BRating"/>
+            </owl:Restriction>
+        </rdf:type>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Kandy"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#Haier"/>
+        <abans:hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9000</abans:hasCapacity>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">89000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</abans:hasWarrantyYears>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#InverterFeature_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#InverterFeature_1">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#InverterFeature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#InverterFeature_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#InverterFeature_2">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#InverterFeature"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#Kandy -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Kandy">
@@ -977,6 +1031,26 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#Samsung_Inverter_AC_12000BTU -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Samsung_Inverter_AC_12000BTU">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#AirConditioner"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasEnergyRating"/>
+                <owl:someValuesFrom rdf:resource="http://www.abans.lk/ontology/abans.owl#APlusPlusRating"/>
+            </owl:Restriction>
+        </rdf:type>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Colombo_City"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#Samsung"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#InverterFeature_1"/>
+        <abans:hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12000</abans:hasCapacity>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">175000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5</abans:hasWarrantyYears>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#SmartFeature_1 -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#SmartFeature_1">
@@ -1040,6 +1114,26 @@
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Whirlpool">
         <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Whirlpool_Front_Load_Washing_Machine -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Whirlpool_Front_Load_Washing_Machine">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#WashingMachine"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasEnergyRating"/>
+                <owl:someValuesFrom rdf:resource="http://www.abans.lk/ontology/abans.owl#APlusPlusPlusRating"/>
+            </owl:Restriction>
+        </rdf:type>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Colombo_City"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#Whirlpool"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#InverterFeature_2"/>
+        <abans:hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8</abans:hasCapacity>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">165000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</abans:hasWarrantyYears>
     </owl:NamedIndividual>
     
 
