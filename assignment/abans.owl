@@ -219,6 +219,25 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#BasicProduct -->
+
+    <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#BasicProduct">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#Product"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://www.abans.lk/ontology/abans.owl#FullySmartProduct"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
+        <owl:disjointWith rdf:resource="http://www.abans.lk/ontology/abans.owl#FullySmartProduct"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#BluetoothFeature -->
 
     <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#BluetoothFeature">
@@ -310,6 +329,27 @@
     <!-- http://www.abans.lk/ontology/abans.owl#ColomboAvailableProduct -->
 
     <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#ColomboAvailableProduct">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#Product"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#availableAt"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#Showroom"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#locatedIn"/>
+                                        <owl:hasValue rdf:resource="http://www.abans.lk/ontology/abans.owl#Colombo"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#Product"/>
     </owl:Class>
     
@@ -794,6 +834,14 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#BluetoothFeature_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#BluetoothFeature_1">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#BluetoothFeature"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#CentralProvince -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#CentralProvince">
@@ -853,6 +901,39 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#LG_43_LED_TV -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#LG_43_LED_TV">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#LEDTV"/>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Colombo_City"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#LG"/>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">65000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</abans:hasWarrantyYears>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#LG_65_OLED_TV -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#LG_65_OLED_TV">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#OLEDTV"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasEnergyRating"/>
+                <owl:someValuesFrom rdf:resource="http://www.abans.lk/ontology/abans.owl#APlusPlusRating"/>
+            </owl:Restriction>
+        </rdf:type>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Colombo_City"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#LG"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#BluetoothFeature_1"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature_2"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature_1"/>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">350000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</abans:hasWarrantyYears>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#Lenovo -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Lenovo">
@@ -877,6 +958,41 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#Samsung_55_Smart_LED_TV -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Samsung_55_Smart_LED_TV">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartLEDTV"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasEnergyRating"/>
+                <owl:someValuesFrom rdf:resource="http://www.abans.lk/ontology/abans.owl#APlusRating"/>
+            </owl:Restriction>
+        </rdf:type>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Colombo_City"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#Samsung"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature_1"/>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">145000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</abans:hasWarrantyYears>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#SmartFeature_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#SmartFeature_1">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#SmartFeature_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#SmartFeature_2">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#SouthernProvince -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#SouthernProvince">
@@ -893,6 +1009,25 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#Toshiba_50_UHD_TV -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Toshiba_50_UHD_TV">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#UHDTV"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasEnergyRating"/>
+                <owl:someValuesFrom rdf:resource="http://www.abans.lk/ontology/abans.owl#BRating"/>
+            </owl:Restriction>
+        </rdf:type>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Galle"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#Toshiba"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature_2"/>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">98000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</abans:hasWarrantyYears>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#WesternProvince -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#WesternProvince">
@@ -905,6 +1040,22 @@
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Whirlpool">
         <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#WiFiFeature_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#WiFiFeature_1">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#WiFiFeature_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#WiFiFeature_2">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature"/>
     </owl:NamedIndividual>
     
 
