@@ -251,22 +251,20 @@ optional here either.
 - **Commit checkpoint**: `feat(ontology): add brand, location, and product
   individuals`
 
-## Phase 7 — Optional / stretch
+## Phase 7 — Optional / stretch (skipped by decision)
 
-Mirrors Pizza's own optional items — present in the plan, not silently
-dropped, but lowest priority.
+Mirrors Pizza's own optional items. **Deliberately skipped** — on
+reflection, both items only existed to mechanically mirror Pizza's own
+optional exercises, not because they reflect genuine Abans business logic
+(unlike everything else in this ontology, which was grounded in something
+real). Keeping this decision recorded rather than silently dropping the
+phase, per our own "never delete a skipped step" policy.
 
-- [ ] **25. Consistency-check probe class** (mirrors Ex. 24-27) — a
-  product deliberately asserted as both `Refrigerator` and `Laptop`
-  (disjoint branches) to confirm the reasoner catches it; left in
-  permanently as a regression test.
+- [ ] **25. Consistency-check probe class** (mirrors Ex. 24-27) — skipped,
+  not grounded in a real Abans scenario.
 - [ ] **26. Multiple independent N&S condition sets** (mirrors the
-  `Triangle` example) — `RecommendedProduct` with two separate
-  `Equivalent To` axioms: (a) `Product and (hasFeature min 3)` — feature-
-  rich path, or (b) `Product and (hasEnergyRating some
-  (APlusPlusPlusRating or APlusPlusRating)) and (hasPrice some
-  xsd:decimal[<= 100000])` — efficient-and-affordable path. Two genuinely
-  independent business reasons a product might be recommended.
+  `Triangle` example) — skipped, `RecommendedProduct`'s two "recipes"
+  were an invented business rule, not a real one.
 
 ## Phase 8 — Export
 
