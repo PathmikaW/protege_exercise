@@ -20,8 +20,9 @@ a custom front end loading the exported OWL file, or via Protégé's built-in
 - **Website**: [buyabans.com](https://buyabans.com/) — Abans' official
   online store (Abans Group: 50+ years, 40+ brands, 400+ showrooms across
   Sri Lanka — source: [Abans Group brands](https://abansgroup.com/brands/)).
-- **Scope**: 4 of Abans' 13 real top-level categories: **Television, Home
-  Appliance, Mobile Device, Computer** — plus a **Showroom/location**
+- **Scope**: 4 of Abans' 13 real top-level categories, named exactly as
+  they appear on buyabans.com's own navigation: **TV, Home Appliances,
+  Mobile Phones & Devices, Computers** — plus a **Showroom/location**
   sub-domain (see below), since Abans' real multi-branch network turned out
   to be the most natural source of several OWL concepts.
 - Category/brand/attribute data pulled from the live site on 2026-08-28
@@ -103,13 +104,28 @@ actual build, same as it did for Pizza.
 - [ ] **2. Root classes**: `Product`, `Brand`, `Feature`,
   `EnergyRatingPartition`, `Location`, `Showroom` — direct subclasses of
   `owl:Thing`.
-- [ ] **3. Product category classes** (disjoint subclasses of `Product`):
-  `Television`, `HomeAppliance`, `MobileDevice`, `Computer`.
-- [ ] **4. Sub-types per category** (disjoint within each category):
-  - `Television` → `LEDTelevision`, `OLEDTelevision`, `QLEDTelevision`
+- [ ] **3. Product category classes** (disjoint subclasses of `Product`) —
+  named after Abans' actual site navigation (verified against
+  buyabans.com's live "All Categories" menu): `TV`, `HomeAppliance`,
+  `MobileDevice`, `Computer`.
+- [ ] **4. Sub-types per category** — using Abans' real subcategory names
+  (disjoint within each category):
+  - `TV` → `LEDTV`, `SmartLEDTV`, `UHDTV`, `OLEDTV`, `QLEDTV` (all 5 are
+    real buyabans.com TV subcategories)
   - `HomeAppliance` → `Refrigerator`, `AirConditioner`, `WashingMachine`
-  - `MobileDevice` → `SmartPhone`, `FeaturePhone`, `SmartWatch`
-  - `Computer` → `Laptop`, `Desktop`, `Tablet`
+    (real subcategories: Refrigerators, Air Conditioners, Washing
+    Machines)
+  - `MobileDevice` → `SmartMobilePhone`, `FeaturePhone`,
+    `SmartBandAndWatch` (real subcategories: Smart Mobile Phones, Feature
+    Phones, Smart Bands & Watches)
+  - `Computer` → `Laptop`, `DesktopAndMonitor`, `Tablet` (real
+    subcategories: Laptops, Desktops & Monitors, Tablets)
+- [ ] **4b. Add `rdfs:label` annotations** to every class above with the
+  *exact* real site wording (e.g. `TV` → label "TV", `HomeAppliance` →
+  label "Home Appliances", `SmartMobilePhone` → label "Smart Mobile
+  Phones") — keeps clean PascalCase OWL class IDs while making the
+  ontology's human-readable face authentically match Abans' actual
+  storefront, not a paraphrase of it.
 - [ ] **5. `Feature` subclasses** (disjoint from each other): `SmartFeature`,
   `WiFiFeature`, `InverterFeature`, `BluetoothFeature`.
 - [ ] **6. `EnergyRatingPartition`** value partition (like
@@ -170,8 +186,8 @@ actual build, same as it did for Pizza.
   - `PremiumAppleProduct ≡ MobileDevice and (hasBrand value Apple) and
     (hasFeature some SmartFeature) and (hasPrice some
     xsd:decimal[>= 200000])`
-  - `BudgetSmartphone ≡ SmartPhone and (hasFeature some SmartFeature) and
-    (hasPrice some xsd:decimal[<= 50000])`
+  - `BudgetSmartphone ≡ SmartMobilePhone and (hasFeature some
+    SmartFeature) and (hasPrice some xsd:decimal[<= 50000])`
   - `InverterHomeAppliance ≡ HomeAppliance and (hasFeature some
     InverterFeature) and (hasEnergyRating some (APlusPlusRating or
     APlusPlusPlusRating))`
