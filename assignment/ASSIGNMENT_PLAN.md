@@ -95,20 +95,20 @@ actual build, same as it did for Pizza.
 
 ## Phase 1 — Setup
 
-- [ ] **1. Create new ontology** in Protégé — `abans.owl`, ontology IRI
+- [x] **1. Create new ontology** in Protégé — `abans.owl`, ontology IRI
   `http://www.abans.lk/ontology/abans.owl`, save directly into
   `protege_exercise/assignment/abans.owl`.
 
 ## Phase 2 — Core classes & disjointness
 
-- [ ] **2. Root classes**: `Product`, `Brand`, `Feature`,
+- [x] **2. Root classes**: `Product`, `Brand`, `Feature`,
   `EnergyRatingPartition`, `Location`, `Showroom` — direct subclasses of
   `owl:Thing`.
-- [ ] **3. Product category classes** (disjoint subclasses of `Product`) —
+- [x] **3. Product category classes** (disjoint subclasses of `Product`) —
   named after Abans' actual site navigation (verified against
   buyabans.com's live "All Categories" menu): `TV`, `HomeAppliance`,
   `MobileDevice`, `Computer`.
-- [ ] **4. Sub-types per category** — using Abans' real subcategory names
+- [x] **4. Sub-types per category** — using Abans' real subcategory names
   (disjoint within each category):
   - `TV` → `LEDTV`, `SmartLEDTV`, `UHDTV`, `OLEDTV`, `QLEDTV` (all 5 are
     real buyabans.com TV subcategories)
@@ -120,19 +120,21 @@ actual build, same as it did for Pizza.
     Phones, Smart Bands & Watches)
   - `Computer` → `Laptop`, `DesktopAndMonitor`, `Tablet` (real
     subcategories: Laptops, Desktops & Monitors, Tablets)
-- [ ] **4b. Add `rdfs:label` annotations** to every class above with the
+- [x] **4b. Add `rdfs:label` annotations** to every class above with the
   *exact* real site wording (e.g. `TV` → label "TV", `HomeAppliance` →
   label "Home Appliances", `SmartMobilePhone` → label "Smart Mobile
   Phones") — keeps clean PascalCase OWL class IDs while making the
   ontology's human-readable face authentically match Abans' actual
-  storefront, not a paraphrase of it.
-- [ ] **5. `Feature` subclasses** (disjoint from each other): `SmartFeature`,
+  storefront, not a paraphrase of it. Confirmed: Protégé renders the tree
+  using these labels (quoting multi-word ones), exactly as intended.
+- [x] **5. `Feature` subclasses** (disjoint from each other): `SmartFeature`,
   `WiFiFeature`, `InverterFeature`, `BluetoothFeature`.
-- [ ] **6. `EnergyRatingPartition`** value partition (like
+- [x] **6. `EnergyRatingPartition`** value partition (like
   `SpicinessValuePartition`): `APlusPlusPlusRating`, `APlusPlusRating`,
   `APlusRating`, `ARating`, `BRating` — mutually disjoint, with a covering
-  axiom.
-- [ ] **7. `Location` classes**: `Location` → disjoint subclasses
+  axiom. Confirmed: `Equivalent To: APlusPlusPlusRating or
+  APlusPlusRating or APlusRating or ARating or BRating`.
+- [x] **7. `Location` classes**: `Location` → disjoint subclasses
   `Province`, `City` (real Sri Lankan geography, not invented).
 - **Commit checkpoint**: `feat(ontology): add core classes, category
   hierarchy, and disjointness`
