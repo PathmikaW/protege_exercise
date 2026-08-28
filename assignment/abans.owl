@@ -867,6 +867,22 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#BluetoothFeature_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#BluetoothFeature_5">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#BluetoothFeature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#BluetoothFeature_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#BluetoothFeature_6">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#BluetoothFeature"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#CentralProvince -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#CentralProvince">
@@ -897,6 +913,34 @@
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#HP">
         <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#HP_Pavilion_Laptop -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#HP_Pavilion_Laptop">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Laptop"/>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Colombo_City"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#HP"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#BluetoothFeature_5"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature_5"/>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">175000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</abans:hasWarrantyYears>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#HP_Tablet -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#HP_Tablet">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Tablet"/>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Colombo_City"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#HP"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature_6"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature_8"/>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">65000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</abans:hasWarrantyYears>
     </owl:NamedIndividual>
     
 
@@ -1017,6 +1061,33 @@
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Lenovo">
         <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Lenovo_Desktop_Monitor_Combo -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Lenovo_Desktop_Monitor_Combo">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#DesktopAndMonitor"/>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Colombo_City"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#Lenovo"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#BluetoothFeature_6"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature_7"/>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">145000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</abans:hasWarrantyYears>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Lenovo_IdeaPad_Laptop -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Lenovo_IdeaPad_Laptop">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Laptop"/>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Kandy"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#Lenovo"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature_6"/>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">95000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</abans:hasWarrantyYears>
     </owl:NamedIndividual>
     
 
@@ -1155,6 +1226,14 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#SmartFeature_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#SmartFeature_6">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#SouthernProvince -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#SouthernProvince">
@@ -1245,6 +1324,38 @@
     <!-- http://www.abans.lk/ontology/abans.owl#WiFiFeature_4 -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#WiFiFeature_4">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#WiFiFeature_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#WiFiFeature_5">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#WiFiFeature_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#WiFiFeature_6">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#WiFiFeature_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#WiFiFeature_7">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#WiFiFeature_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#WiFiFeature_8">
         <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#WiFiFeature"/>
     </owl:NamedIndividual>
     
