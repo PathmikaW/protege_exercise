@@ -1092,6 +1092,19 @@
     
 
 
+    <!-- http://www.abans.lk/ontology/abans.owl#Mystery_Smart_Gadget -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Mystery_Smart_Gadget">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartMobilePhone"/>
+        <abans:availableAt rdf:resource="http://www.abans.lk/ontology/abans.owl#Abans_Kandy"/>
+        <abans:hasBrand rdf:resource="http://www.abans.lk/ontology/abans.owl#Xiaomi"/>
+        <abans:hasFeature rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature_7"/>
+        <abans:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">120000</abans:hasPrice>
+        <abans:hasWarrantyYears rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</abans:hasWarrantyYears>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.abans.lk/ontology/abans.owl#Philips -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Philips">
@@ -1229,6 +1242,14 @@
     <!-- http://www.abans.lk/ontology/abans.owl#SmartFeature_6 -->
 
     <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#SmartFeature_6">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#SmartFeature_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#SmartFeature_7">
         <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
     </owl:NamedIndividual>
     
