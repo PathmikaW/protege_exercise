@@ -170,11 +170,10 @@ actual build, same as it did for Pizza.
   `VegetarianPizza` analog — **needs closure axioms**, see Phase 5):
   `FullySmartProduct ≡ Product and (hasFeature only (SmartFeature or
   WiFiFeature or BluetoothFeature))`
-- [ ] **14. Nested restriction** (realistic `SpicyPizza`-style nesting,
+- [x] **14. Nested restriction** (realistic `SpicyPizza`-style nesting,
   using the real showroom structure): `ColomboAvailableProduct ≡ Product
   and (availableAt some (Showroom and (locatedIn value Colombo)))`.
-  **Deferred to Phase 6** — needs the `Colombo` individual first (empty
-  placeholder class created).
+  Completed in Phase 6 once `Colombo` existed.
 - [x] **15. Datatype facet restriction** (OWL 2 territory Pizza never
   used): `PremiumProduct ≡ Product and (hasPrice some
   xsd:decimal[>= 150000])`
@@ -191,8 +190,9 @@ actual build, same as it did for Pizza.
     APlusPlusPlusRating))` — done, disjoint with `BudgetSmartphone`
   - `PremiumAppleProduct ≡ 'Mobile Phones & Devices' and (hasBrand value
     Apple) and (hasFeature some SmartFeature) and (hasPrice some
-    xsd:decimal[>= 200000])` — **deferred to Phase 6**, needs `Apple`
-    individual (empty placeholder class created)
+    xsd:decimal[>= 200000])` — completed in Phase 6 once `Apple` existed,
+    including its own closure axiom and disjointness with the other two
+    product-line classes
   - **Discovery mid-build**: after Phase 2's `rdfs:label` annotations,
     Protégé renders/parses by label, not raw class ID — any labeled
     class with a multi-word label must be typed in single quotes (e.g.
@@ -223,10 +223,10 @@ optional here either.
 
 ## Phase 6 — Individuals (the ABox)
 
-- [ ] **21. `Brand` individuals**: `LG`, `Samsung`, `Apple`, `Whirlpool`,
+- [x] **21. `Brand` individuals**: `LG`, `Samsung`, `Apple`, `Whirlpool`,
   `Haier`, `HP`, `Xiaomi`, `Lenovo`, `Toshiba`, `Philips` — enumerate as a
   closed class afterward (like `Country`).
-- [ ] **22. `Province`/`City`/`Showroom` individuals** (real Sri Lankan
+- [x] **22. `Province`/`City`/`Showroom` individuals** (real Sri Lankan
   geography, real Abans branch cities): Provinces `WesternProvince`,
   `CentralProvince`, `SouthernProvince`; Cities `Colombo` (locatedIn
   WesternProvince), `Kandy` (locatedIn CentralProvince), `Galle` (locatedIn

@@ -5,7 +5,8 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:abans="http://www.abans.lk/ontology/abans.owl#">
     <owl:Ontology rdf:about="http://www.abans.lk/ontology/abans.owl"/>
     
 
@@ -279,7 +280,20 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartMobilePhone"/>
-        <owl:disjointWith rdf:resource="http://www.abans.lk/ontology/abans.owl#InverterHomeAppliance"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasFeature"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#BluetoothFeature"/>
+                            <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
+                            <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#WiFiFeature"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -516,7 +530,49 @@
     <!-- http://www.abans.lk/ontology/abans.owl#PremiumAppleProduct -->
 
     <owl:Class rdf:about="http://www.abans.lk/ontology/abans.owl#PremiumAppleProduct">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#MobileDevice"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasFeature"/>
+                        <owl:someValuesFrom rdf:resource="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasBrand"/>
+                        <owl:hasValue rdf:resource="http://www.abans.lk/ontology/abans.owl#Apple"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasPrice"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">200000</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.abans.lk/ontology/abans.owl#MobileDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.abans.lk/ontology/abans.owl#hasFeature"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#BluetoothFeature"/>
+                            <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
+                            <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#WiFiFeature"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -695,6 +751,175 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Abans_Colombo_City -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Abans_Colombo_City">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Showroom"/>
+        <abans:locatedIn rdf:resource="http://www.abans.lk/ontology/abans.owl#Colombo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Abans_Galle -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Abans_Galle">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Showroom"/>
+        <abans:locatedIn rdf:resource="http://www.abans.lk/ontology/abans.owl#Galle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Abans_Kandy -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Abans_Kandy">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Showroom"/>
+        <abans:locatedIn rdf:resource="http://www.abans.lk/ontology/abans.owl#Kandy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Apple -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Apple">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#CentralProvince -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#CentralProvince">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Province"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Colombo -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Colombo">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#City"/>
+        <abans:locatedIn rdf:resource="http://www.abans.lk/ontology/abans.owl#WesternProvince"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Galle -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Galle">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#City"/>
+        <abans:locatedIn rdf:resource="http://www.abans.lk/ontology/abans.owl#SouthernProvince"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#HP -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#HP">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Haier -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Haier">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Kandy -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Kandy">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#City"/>
+        <abans:locatedIn rdf:resource="http://www.abans.lk/ontology/abans.owl#CentralProvince"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#LG -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#LG">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Lenovo -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Lenovo">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Philips -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Philips">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Samsung -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Samsung">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#SouthernProvince -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#SouthernProvince">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Province"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Toshiba -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Toshiba">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#WesternProvince -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#WesternProvince">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Province"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Whirlpool -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Whirlpool">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.abans.lk/ontology/abans.owl#Xiaomi -->
+
+    <owl:NamedIndividual rdf:about="http://www.abans.lk/ontology/abans.owl#Xiaomi">
+        <rdf:type rdf:resource="http://www.abans.lk/ontology/abans.owl#Brand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // General axioms
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -725,6 +950,14 @@
             <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#InverterFeature"/>
             <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#SmartFeature"/>
             <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#WiFiFeature"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#BudgetSmartphone"/>
+            <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#InverterHomeAppliance"/>
+            <rdf:Description rdf:about="http://www.abans.lk/ontology/abans.owl#PremiumAppleProduct"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
