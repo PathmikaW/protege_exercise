@@ -206,25 +206,18 @@ actual build, same as it did for Pizza.
 This was the single most important lesson from the Pizza build — not
 optional here either.
 
-- [ ] **19. Closure axioms** — add `hasFeature only (SmartFeature or
-  WiFiFeature or BluetoothFeature)` closure restrictions to
-  `PremiumAppleProduct` and `BudgetSmartphone` (both only ever assert
-  smart-type features) **and to specific product individuals as needed**,
-  so the reasoner can correctly classify them under `FullySmartProduct`.
-  **Do not** add this same closure to `InverterHomeAppliance` — it
-  necessarily has an `InverterFeature`, which is disjoint from the
-  smart/WiFi/Bluetooth set (Phase 2 step 5), so closing it the same way
-  would make the *entire class* unsatisfiable (equivalent to
-  `owl:Nothing`), not just excluded from `FullySmartProduct`. This is a
-  real gotcha worth understanding — closure axioms must only be added
-  where they can't contradict the class's own defining restrictions.
-- [ ] **20. Deliberately unclosed individual** — create one product
-  individual with `hasFeature some SmartFeature` asserted but **not**
-  closed. Classify and confirm: it lands under `SmartProduct` (provable
-  positive claim) but in **neither** `FullySmartProduct` nor its
-  complement `BasicProduct ≡ Product and (not FullySmartProduct)`
-  (disjoint with `FullySmartProduct`) — the OWA payoff, same shape as
-  `UnclosedPizza`.
+- [x] **19. Closure axioms** — add `hasFeature only (SmartFeature or
+  WiFiFeature or BluetoothFeature)` to `BudgetSmartphone`'s SubClass Of.
+  (`PremiumAppleProduct` will get the same closure once it exists in
+  Phase 6.) Confirmed **not** applied to `InverterHomeAppliance` — see the
+  unsatisfiability gotcha noted in Phase 4.
+- [ ] **20. Deliberately unclosed individual** — **moved to Phase 6**,
+  needs real individuals to exist. Create one product individual with
+  `hasFeature some SmartFeature` asserted but **not** closed. Classify and
+  confirm: it lands under `SmartProduct` (provable positive claim) but in
+  **neither** `FullySmartProduct` nor its complement `BasicProduct ≡
+  Product and (not FullySmartProduct)` (disjoint with `FullySmartProduct`)
+  — the OWA payoff, same shape as `UnclosedPizza`.
 - **Commit checkpoint**: `feat(ontology): add closure axioms and open
   world assumption demonstration`
 
