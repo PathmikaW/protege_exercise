@@ -243,8 +243,11 @@ optional here either.
   combinations so the competency questions are non-trivial to answer.
   Energy ratings only asserted for TV/HomeAppliance (matches real Abans
   site behavior — phones/computers don't display that attribute there).
-- [ ] **24. Reclassify & inspect** — run the reasoner, confirm individuals
-  land under the right defined classes automatically.
+- [x] **24. Reclassify & inspect** — reasoner run confirmed. Verified the
+  key case: `Mystery_Smart_Gadget`'s inferred Types are exactly
+  `'Smart Mobile Phones'` + `BudgetProduct` + `SmartProduct` — with
+  neither `FullySmartProduct` nor `BasicProduct` present. Open World
+  Assumption demo confirmed working correctly.
 - **Commit checkpoint**: `feat(ontology): add brand, location, and product
   individuals`
 
