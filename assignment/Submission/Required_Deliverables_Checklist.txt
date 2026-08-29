@@ -1,0 +1,49 @@
+REQUIRED DELIVERABLES CHECKLIST
+Index No: 258843A | Name: Weerarathna T.M.P.
+IT5432 - Semantic Web and Ontological Engineering
+================================================================
+
+Per Section 5 ("Required Deliverables") of the assignment brief.
+Full detail for each item is in 258843A_Assignment_Report.docx;
+this file is a quick-scan summary.
+
+[x] 1. Ontology file (.owl, .rdf, or .ttl format)
+    -> abans.owl, included in this Submission folder and in the
+       GitHub repository (assignment/abans.owl).
+
+[x] 2. Reasoning evidence (screenshots or exported results)
+    -> Task 4's inferred-facts table (5+ inferred facts, each with
+       the axiom that produced it), with Protege "Individuals
+       (Inferred)" screenshots embedded inline in the report.
+    -> Additional query-result evidence throughout Task 5.
+
+[x] 3. Ontology diagram included in the report
+    -> Embedded in Task 2 (Ontology Design) of the report.
+
+[x] 4. Bonus application source code and setup instructions
+    -> Full source in the GitHub repository (assignment/backend/,
+       assignment/frontend/).
+    -> Setup and execution instructions in the Bonus Task section
+       of the report.
+
+[x] 5. Short presentation / live demonstration
+    -> 258843A_Ontology_Demo.mp4, included in this Submission folder.
+
+[x] Limitations and future improvements
+    -> Own standalone section in the report (5 limitations,
+       6 future improvements listed).
+
+[x] Conclusion
+    -> Own section in the report.
+
+[x] References
+    -> Own section in the report (Abans/buyabans.com, Protege,
+       rdflib, FastAPI, Streamlit).
+
+================================================================
+Also included, beyond the minimum requirement:
+- AI-Assistance Acknowledgment section (per Section 8, Academic
+  Integrity, of the brief).
+- 15 SPARQL competency questions developed (minimum required: 8).
+- Bonus application covers 3 of the 6 listed capabilities
+  (minimum required: 2).
