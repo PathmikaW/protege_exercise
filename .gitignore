@@ -9,3 +9,5 @@ assignment/__pycache__/
 *.mp4
 *.webm
 *.mov
+assignment/Submission/extracted_screenshots/
+assignment/Submission/*.pdf

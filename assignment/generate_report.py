@@ -45,6 +45,15 @@ def code_para(text):
     return p
 
 
+SCREENSHOTS = "Submission/extracted_screenshots/"
+
+
+def pic(filename, width=6.0):
+    p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p.add_run().add_picture(SCREENSHOTS + filename, width=Inches(width))
+
+
 # ============================== HEADER ==============================
 doc.add_heading("Local-Domain Ontology Design, Reasoning and SPARQL", level=0)
 meta = doc.add_paragraph()
@@ -125,9 +134,10 @@ for c in cqs:
 doc.add_heading("Task 2 - Ontology Design", level=1)
 doc.add_paragraph(
     "The final ontology contains 47 classes, 15 properties (10 object + 5 data), "
-    "59 individuals, and 598 axioms (461 logical), verified consistent by the "
+    "59 individuals, and 597 axioms (460 logical), verified consistent by the "
     "HermiT reasoner."
 )
+pic("p02_0133.png", width=6.3)
 
 doc.add_heading("Main Classes and Class Hierarchy", level=2)
 doc.add_paragraph(
@@ -156,6 +166,11 @@ add_table(
         ("hasCapacity", "Product", "xsd:decimal", "-"),
     ],
 )
+img_row = doc.add_table(rows=1, cols=2)
+c1 = img_row.rows[0].cells[0].paragraphs[0].add_run()
+c1.add_picture(SCREENSHOTS + "p02_0630.png", width=Inches(3.0))
+c2 = img_row.rows[0].cells[1].paragraphs[0].add_run()
+c2.add_picture(SCREENSHOTS + "p02_0635.png", width=Inches(3.0))
 
 doc.add_heading("Representative Individuals", level=2)
 doc.add_paragraph(
@@ -165,6 +180,7 @@ doc.add_paragraph(
     "3 Cities, 3 Showrooms) modeling Abans' real branch presence in Colombo, "
     "Kandy, and Galle."
 )
+pic("p03_0125.png", width=6.3)
 
 doc.add_heading("Important Restrictions", level=2)
 doc.add_paragraph(
@@ -213,6 +229,7 @@ doc.add_paragraph(
     "satisfy a count - each is tied to a genuine Abans business concept, as shown "
     "in the Task 2 justification table."
 )
+pic("p04_0639.jpeg", width=5.5)
 
 # ============================== TASK 4 ==============================
 doc.add_heading("Task 4 - Reasoning and Inference", level=1)
@@ -238,8 +255,16 @@ inferred = [
 add_table(["Inferred fact", "Axiom(s) that produced it"], inferred)
 doc.add_paragraph(
     "Evidence: screenshots of the Protégé Individuals (Inferred) view for each of "
-    "the above are attached at the end of this report."
+    "the above follow - iPhone_15_Pro (ColomboAvailableProduct, FullyLoadedProduct, "
+    "FullySmartProduct, PremiumAppleProduct, PremiumProduct, SmartProduct all "
+    "inferred), Mystery_Smart_Gadget (only BudgetProduct and SmartProduct inferred "
+    "- correctly excluded from FullySmartProduct, demonstrating the Open World "
+    "Assumption), and LG_65_OLED_TV (EcoFriendlyProduct, FullyLoadedProduct, "
+    "PremiumProduct all inferred)."
 )
+pic("p05_0528.png", width=6.3)
+pic("p06_0035.png", width=6.3)
+pic("p06_0349.png", width=6.3)
 
 # ============================== TASK 5 ==============================
 doc.add_heading("Task 5 - SPARQL Query Development", level=1)
@@ -260,6 +285,7 @@ doc.add_paragraph(
     "exported OWL file as real triples - the approach the brief's technical note "
     "explicitly recommends."
 )
+pic("p07_0225.png", width=6.0)
 
 query_data = [
     ("CQ1", "What products does brand X sell?",
@@ -324,6 +350,12 @@ query_data = [
      "OPTIONAL correctly returns every product even when hasCapacity doesn't apply."),
 ]
 
+CQ_SCREENSHOTS = {
+    "CQ1": ["p07_0592.png"],
+    "CQ2": ["p08_0189.jpeg"],
+    "CQ15": ["p11_0034.png", "p11_0467.png"],
+}
+
 for cq_id, question, sparql, result, kind, interp in query_data:
     doc.add_heading(f"{cq_id} - {question}", level=3)
     code_para(sparql)
@@ -337,6 +369,8 @@ for cq_id, question, sparql, result, kind, interp in query_data:
     p.add_run("\n")
     p.add_run("Interpretation: ").bold = True
     p.add_run(interp)
+    for fname in CQ_SCREENSHOTS.get(cq_id, []):
+        pic(fname, width=5.5)
 
 # ============================== TASK 6 ==============================
 doc.add_heading("Task 6 - Evaluation and Documentation", level=1)
@@ -347,10 +381,12 @@ eval_points = [
     ("Quality of naming and documentation", "Clean PascalCase class/property identifiers with rdfs:label annotations carrying real Abans wording, plus rdfs:comment on major classes for readability."),
     ("Reusability and extensibility", "The category/sub-type pattern and the defined-class pattern (Smart/Premium/Eco-Friendly/etc.) can be extended to Abans' remaining nine catalog categories, or adapted to a similar retailer, with minimal restructuring."),
 ]
-for title, text in eval_points:
+for i, (title, text) in enumerate(eval_points):
     p = doc.add_paragraph()
     p.add_run(title + ": ").bold = True
     p.add_run(text)
+    if i == 0:
+        pic("p12_0095.png", width=3.0)
 
 # ==================== LIMITATIONS & FUTURE IMPROVEMENTS ====================
 doc.add_heading("Limitations and Future Improvements", level=1)
@@ -381,6 +417,17 @@ doc.add_paragraph(
     "A full-stack application was built on top of the ontology: a FastAPI + "
     "rdflib backend, and a Streamlit front end."
 )
+links_p = doc.add_paragraph()
+for label, url in [
+    ("Source Code: ", "https://github.com/PathmikaW/protege_exercise/tree/main/assignment"),
+    ("Backend: ", "https://github.com/PathmikaW/protege_exercise/blob/main/assignment/backend/main.py"),
+    ("Frontend: ", "https://github.com/PathmikaW/protege_exercise/blob/main/assignment/frontend/app.py"),
+]:
+    links_p.add_run(label).bold = True
+    r = links_p.add_run(url + "\n")
+    r.font.color.rgb = RGBColor(0x05, 0x63, 0xC1)
+    r.font.underline = True
+
 doc.add_heading("Minimum Capability Coverage", level=2)
 doc.add_paragraph(
     "The application covers more than the required minimum of two capabilities:"
@@ -411,16 +458,18 @@ code_para(
     ".venv\\Scripts\\python.exe -m uvicorn backend.main:app --port 8010\n"
     ".venv\\Scripts\\python.exe -m streamlit run frontend/app.py --server.port 8511"
 )
+pic("p13_0570.png", width=6.3)
 
 doc.add_heading("Evidence of Reasoning-Dependent Results", level=2)
 doc.add_paragraph(
     "Running CQ5 (SmartProduct), CQ6 (EcoFriendlyProduct), CQ7 (PremiumProduct), "
     "CQ8 (BudgetProduct) or CQ12 (FullyLoadedProduct) through the application "
     "returns results that depend entirely on reasoner-inferred class membership, "
-    "materialised into the exported OWL file as described in Task 5. Screenshots "
-    "of these queries running in the application are attached at the end of "
-    "this report."
+    "materialised into the exported OWL file as described in Task 5."
 )
+for fname in ["p14_0136.png", "p14_0393.png", "p14_0610.png",
+              "p15_0040.png", "p15_0304.png", "p15_0538.png"]:
+    pic(fname, width=5.0)
 
 # ============================== PRESENTATION ==============================
 doc.add_heading("Presentation and Demonstration", level=1)
@@ -436,7 +485,7 @@ doc.add_paragraph(
 doc.add_heading("Required Deliverables Checklist", level=1)
 deliverables = [
     ("Ontology file (.owl)", "abans.owl - included in the submission and the GitHub repository."),
-    ("Reasoning evidence (screenshots / exported results)", "Task 4's inferred-facts table plus the query results documented in Task 5; screenshots attached at the end of this report."),
+    ("Reasoning evidence (screenshots / exported results)", "Task 4's inferred-facts table with Protégé screenshots embedded inline, plus the query results and application screenshots throughout Task 5 and the Bonus section."),
     ("Ontology diagram in the report", "Included in Task 2."),
     ("Bonus application source code and setup instructions", "Full source in the GitHub repository (backend/, frontend/); setup instructions in the Bonus Task section above."),
     ("Short presentation / live demonstration", "258843A_Ontology_Demo.mp4, included in the submission."),
@@ -480,9 +529,6 @@ doc.add_paragraph(
     "my own, and I am able to explain and demonstrate every part of the "
     "submitted work as required by the assignment's General Instructions."
 )
-
-doc.add_heading("Screenshots", level=1)
-doc.add_paragraph("(Screenshots for Task 4 evidence and the Bonus application are attached below.)")
 
 doc.save("submission/258843A_Assignment_Report.docx")
 print("Report generated.")
