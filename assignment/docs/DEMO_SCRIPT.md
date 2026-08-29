@@ -1,6 +1,7 @@
 # Abans Demo Script — 5:00
 
-Cue-card format — short lines, easy to glance at while recording.
+Natural narration, organized by time segment. Read each "Say" block like
+you're explaining it to someone, not reciting bullet points.
 
 ## Before recording
 
@@ -17,10 +18,9 @@ Cue-card format — short lines, easy to glance at while recording.
 
 **Show:** Classes tab, collapsed
 
-**Say:**
-- Ontology for Abans
-- Real Sri Lankan retailer
-- Real catalog: TV, appliances, mobile, computers
+**Say:** This is an ontology I built for Abans — a real Sri Lankan
+electronics retailer. It models their actual product catalog: TVs, home
+appliances, mobile devices, and computers.
 
 ---
 
@@ -28,10 +28,10 @@ Cue-card format — short lines, easy to glance at while recording.
 
 **Show:** Expand `Product` → 4 categories → expand `TV`
 
-**Say:**
-- Categories are disjoint
-- Sub-types are real (LED / Smart LED / UHD / OLED / QLED)
-- Labels match Abans' actual site wording
+**Say:** The product categories are disjoint from each other, and each one
+has real sub-types pulled straight from Abans' own site — LED, Smart LED,
+UHD, OLED, and QLED TVs. I even added labels so the tree shows their
+actual wording, not a paraphrase.
 
 ---
 
@@ -39,10 +39,10 @@ Cue-card format — short lines, easy to glance at while recording.
 
 **Show:** `Product` (hasBrand), `PremiumProduct` (price facet)
 
-**Say:**
-- Every restriction type used
-- This one: numeric price facet
-- Beyond typical intro-level OWL
+**Say:** I used every major type of OWL restriction here. Every product
+must have a brand — that's a necessary condition. And this one,
+PremiumProduct, uses a numeric price restriction directly on a data
+value, which goes further than a typical intro exercise.
 
 ---
 
@@ -50,10 +50,10 @@ Cue-card format — short lines, easy to glance at while recording.
 
 **Show:** Individuals by class → **Inferred** → `SmartProduct`, `PremiumProduct`
 
-**Say:**
-- Never asserted these directly
-- Reasoner classifies automatically
-- iPhone → Smart, because it has a smart feature
+**Say:** Here's the reasoner doing real work. I never said this phone is a
+SmartProduct anywhere — it's inferred automatically because it has a
+smart feature. Same story for Premium: anything priced above 150,000
+gets classified in on its own.
 
 ---
 
@@ -61,12 +61,12 @@ Cue-card format — short lines, easy to glance at while recording.
 
 **Show:** `Mystery_Smart_Gadget` → inferred Types
 
-**Say:**
-- One smart feature asserted
-- Never said "only" this feature
-- Reasoner won't confirm OR deny fully-smart
-- Genuine logical limbo
-- This is OWL's core idea
+**Say:** This next part is the most important idea in the whole ontology.
+This product has one smart feature asserted, but I deliberately never
+said that's its *only* feature. So the reasoner can't confirm it's fully
+smart, but it also can't rule it out — it sits in genuine logical limbo.
+That's the Open World Assumption, and it's the core idea OWL is built
+around.
 
 ---
 
@@ -74,10 +74,10 @@ Cue-card format — short lines, easy to glance at while recording.
 
 **Show:** `Abans_Colombo_City` → `locatedIn` chain → Province
 
-**Say:**
-- Real Abans branch structure
-- Transitive property
-- Colombo showroom → automatically Western Province
+**Say:** I also modeled Abans' real branch network. Showrooms are located
+in cities, which are located in provinces, using a transitive property —
+so a product available at the Colombo showroom is automatically known to
+be available in the Western Province, without me stating that directly.
 
 ---
 
@@ -85,9 +85,9 @@ Cue-card format — short lines, easy to glance at while recording.
 
 **Show:** Ontology metrics panel
 
-**Say:**
-- ~24 classes, 20 properties, 18 individuals
-- Fully consistent, reasoner-verified
+**Say:** In total, the ontology has around 24 classes, 20 properties, and
+18 real product individuals, fully reasoner-verified with no
+inconsistencies.
 
 ---
 
@@ -95,11 +95,11 @@ Cue-card format — short lines, easy to glance at while recording.
 
 **Show:** Streamlit — run CQ11, then Raw SPARQL tab
 
-**Say:**
-- 14 competency questions, real SPARQL
-- FastAPI backend + Streamlit UI
-- CQ11: brands in 2+ categories → Samsung
-- Raw SPARQL box: any query, live
+**Say:** For the scoring tier, I built 14 competency questions as real
+SPARQL queries, served through a FastAPI backend with a Streamlit front
+end. This one finds brands that appear in more than one category —
+Samsung, since they sell TVs, appliances, and watches. And here's a raw
+SPARQL box where I can run any query live against the exported ontology.
 
 ---
 
@@ -107,19 +107,17 @@ Cue-card format — short lines, easy to glance at while recording.
 
 **Show:** Sidebar stats
 
-**Say:**
-- Backend loads exported OWL
-- Inferred facts baked in at export
-- No live reasoner needed at query time
+**Say:** The backend loads the exported OWL file into memory, including
+the reasoner's inferred facts, which get baked in during export — so all
+of this runs without needing a live reasoner at query time.
 
 ---
 
 ## 4:50–5:00 — Close
 
-**Say:**
-- Protégé for modeling + reasoning
-- Real API + UI on top
-- Thanks for watching
+**Say:** So that's the full pipeline — Protégé for modeling and
+reasoning, and a real API and UI on top for actually querying it. Thanks
+for watching.
 
 ---
 
