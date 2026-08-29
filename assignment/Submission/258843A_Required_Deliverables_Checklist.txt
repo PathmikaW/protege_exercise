@@ -1,6 +1,5 @@
 Required Deliverables Checklist - 258843A
 
-Just going through section 5 of the brief to make sure I have everything before submitting.
 
 1. Ontology file - done, abans.owl is in this folder and also in the github repo.
 

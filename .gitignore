@@ -11,3 +11,4 @@ assignment/__pycache__/
 *.mov
 assignment/Submission/extracted_screenshots/
 assignment/Submission/*.pdf
+assignment/Submission/*.zip
