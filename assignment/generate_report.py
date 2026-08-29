@@ -346,13 +346,34 @@ eval_points = [
     ("Coverage of competency questions", "All 15 competency questions were implemented and verified to return correct results (Task 5)."),
     ("Quality of naming and documentation", "Clean PascalCase class/property identifiers with rdfs:label annotations carrying real Abans wording, plus rdfs:comment on major classes for readability."),
     ("Reusability and extensibility", "The category/sub-type pattern and the defined-class pattern (Smart/Premium/Eco-Friendly/etc.) can be extended to Abans' remaining nine catalog categories, or adapted to a similar retailer, with minimal restructuring."),
-    ("Limitations", "Scope is limited to 4 of Abans' 13 real categories; prices are modeled as plain decimals without currency/locale typing; stock quantities and multi-currency pricing are not modeled; the ontology does not model customer accounts or transactions."),
-    ("Future improvements", "Extend to the remaining catalog categories; add a Currency/Price value object; add temporal properties for stock/discount validity; integrate live product data via a scheduled import instead of static individuals."),
 ]
 for title, text in eval_points:
     p = doc.add_paragraph()
     p.add_run(title + ": ").bold = True
     p.add_run(text)
+
+# ==================== LIMITATIONS & FUTURE IMPROVEMENTS ====================
+doc.add_heading("Limitations and Future Improvements", level=1)
+doc.add_heading("Current Limitations", level=2)
+for lim in [
+    "Scope is limited to 4 of Abans' 13 real catalog categories (TV, Home Appliances, Mobile Devices, Computers) - the remaining nine (Kitchen Appliances, Fashion & Lifestyle, MINISO, Personal Care, Commercial Appliances, Kids Toys, Furniture & Home Style, Audio & Entertainment, Apple) are not modeled.",
+    "Prices are modeled as plain xsd:decimal values without an explicit Currency class or locale typing.",
+    "Stock quantities, discounts/promotions, and multi-currency pricing are not modeled.",
+    "Customer accounts, orders, and transactions are out of scope - the ontology models the catalog, not the sales process.",
+    "The showroom network covers only 3 representative branches (Colombo, Kandy, Galle) out of Abans' real 400+ showrooms, chosen to demonstrate the transitive location property without modeling the full branch list.",
+]:
+    doc.add_paragraph(lim, style="List Bullet")
+
+doc.add_heading("Future Improvements", level=2)
+for imp in [
+    "Extend the category hierarchy to Abans' remaining nine catalog categories using the same disjoint-category pattern already established.",
+    "Add a Currency/Money value object so prices are locale-aware rather than plain decimals.",
+    "Add temporal properties (e.g. discount validity periods, stock-availability timestamps) to support time-sensitive competency questions.",
+    "Expand the showroom network to Abans' full real branch list, and add richer geographic modeling (district-level, not just province-level).",
+    "Integrate live product data via a scheduled import/ETL process instead of static hand-entered individuals, keeping the ontology's structure but automating its ABox population.",
+    "Add a SHACL or OWL-based data-quality validation layer to catch modeling errors earlier, complementing the reasoner's consistency checks.",
+]:
+    doc.add_paragraph(imp, style="List Bullet")
 
 # ============================== BONUS ==============================
 doc.add_heading("Bonus Task - Application Integration", level=1)
@@ -400,6 +421,30 @@ doc.add_paragraph(
     "of these queries running in the application are attached at the end of "
     "this report."
 )
+
+# ============================== PRESENTATION ==============================
+doc.add_heading("Presentation and Demonstration", level=1)
+doc.add_paragraph(
+    "A five-minute screen-recorded demonstration (258843A_Ontology_Demo.mp4, "
+    "included in the submission) walks through the ontology's class hierarchy, "
+    "restriction types, live reasoner classification, the Open World Assumption "
+    "demonstration, the real showroom/transitive-location structure, and a live "
+    "run of the FastAPI/Streamlit application."
+)
+
+# ==================== REQUIRED DELIVERABLES CHECKLIST ====================
+doc.add_heading("Required Deliverables Checklist", level=1)
+deliverables = [
+    ("Ontology file (.owl)", "abans.owl - included in the submission and the GitHub repository."),
+    ("Reasoning evidence (screenshots / exported results)", "Task 4's inferred-facts table plus the query results documented in Task 5; screenshots attached at the end of this report."),
+    ("Ontology diagram in the report", "Included in Task 2."),
+    ("Bonus application source code and setup instructions", "Full source in the GitHub repository (backend/, frontend/); setup instructions in the Bonus Task section above."),
+    ("Short presentation / live demonstration", "258843A_Ontology_Demo.mp4, included in the submission."),
+    ("Limitations and future improvements", "Own section above."),
+    ("Conclusion", "Own section below."),
+    ("References", "Own section below."),
+]
+add_table(["Deliverable", "Where it is satisfied"], deliverables)
 
 # ============================== CONCLUSION / REFS ==============================
 doc.add_heading("Conclusion", level=1)
