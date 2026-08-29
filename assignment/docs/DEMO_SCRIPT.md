@@ -14,17 +14,23 @@ you're explaining it to someone, not reciting bullet points.
 
 ---
 
-## 0:00–0:20 — Intro
+## 0:00–0:45 — Intro (overview up front)
 
-**Show:** Classes tab, collapsed
+**Show:** Classes tab, collapsed → Ontology metrics panel (quick glance)
 
 **Say:** This is an ontology I built for Abans — a real Sri Lankan
-electronics retailer. It models their actual product catalog: TVs, home
-appliances, mobile devices, and computers.
+electronics retailer — covering their actual product catalog: TVs, home
+appliances, mobile devices, and computers. Before I dig into the
+details, here's the overall picture: 47 classes, 15 properties — 10
+object and 5 data — and 59 individuals, all fully reasoner-verified with
+no inconsistencies. And beyond just the ontology itself, I also built a
+complete backend and frontend on top of it — a FastAPI service and a
+Streamlit app — so I can run real competency questions against it,
+which I'll demo at the end.
 
 ---
 
-## 0:20–0:50 — Class hierarchy
+## 0:45–1:15 — Class hierarchy
 
 **Show:** Expand `Product` → 4 categories → expand `TV`
 
@@ -35,7 +41,7 @@ actual wording, not a paraphrase.
 
 ---
 
-## 0:50–1:30 — Restrictions
+## 1:15–1:55 — Restrictions
 
 **Show:** `Product` (hasBrand), `PremiumProduct` (price facet)
 
@@ -46,18 +52,19 @@ value, which goes further than a typical intro exercise.
 
 ---
 
-## 1:30–2:15 — Reasoner magic
+## 1:55–2:40 — Reasoner magic
 
 **Show:** Individuals by class → **Inferred** → `SmartProduct`, `PremiumProduct`
 
 **Say:** Here's the reasoner doing real work. I never said this phone is a
 SmartProduct anywhere — it's inferred automatically because it has a
 smart feature. Same story for Premium: anything priced above 150,000
-gets classified in on its own.
+gets classified in on its own. Twelve classes in this ontology are
+defined this way, letting the reasoner do the classification for me.
 
 ---
 
-## 2:15–2:50 — ⭐ Open World Assumption (most important part)
+## 2:40–3:15 — ⭐ Open World Assumption (most important part)
 
 **Show:** `Mystery_Smart_Gadget` → inferred Types
 
@@ -70,7 +77,7 @@ around.
 
 ---
 
-## 2:50–3:15 — Real showroom network
+## 3:15–3:40 — Real showroom network
 
 **Show:** `Abans_Colombo_City` → `locatedIn` chain → Province
 
@@ -78,19 +85,6 @@ around.
 in cities, which are located in provinces, using a transitive property —
 so a product available at the Colombo showroom is automatically known to
 be available in the Western Province, without me stating that directly.
-
----
-
-## 3:15–3:40 — Metrics
-
-**Show:** Ontology metrics panel
-
-**Say:** In total, the ontology has 47 classes, 15 properties, and 59
-individuals — 598 axioms altogether. Twelve of those classes are fully
-defined, which is what lets the reasoner classify things into them
-automatically. Of the 59 individuals, 18 are actual products — the rest
-are brands, showrooms, and feature markers. All fully reasoner-verified,
-no inconsistencies.
 
 ---
 
@@ -126,5 +120,5 @@ for watching.
 
 ## If running long — cut these first
 
-- 0:50–1:30 (restrictions) → one sentence only
-- 2:50–3:15 (showroom) → mention in intro instead, skip screen
+- 1:15–1:55 (restrictions) → one sentence only
+- 3:15–3:40 (showroom) → mention in intro instead, skip screen
