@@ -147,3 +147,16 @@ SELECT ?showroom ?city ?province WHERE {
 *(The `a abans:City` / `a abans:Province` type-guards are needed to
 disambiguate from the baked-in `Showroom → Province` direct triple —
 without them, the transitive closure could bind `?city` to a Province.)*
+
+**CQ15 — List all products with their capacity, where available** (OPTIONAL)
+```sparql
+PREFIX abans: <http://www.abans.lk/ontology/abans.owl#>
+SELECT ?product ?capacity WHERE {
+  ?product a abans:Product .
+  OPTIONAL { ?product abans:hasCapacity ?capacity }
+}
+```
+*(Returns all 18 products — capacity is bound only for the 4 appliances
+that have one asserted (fridges, ACs, washing machine), and left
+unbound elsewhere, since `hasCapacity` doesn't apply to TVs, phones, or
+computers.)*

@@ -148,6 +148,15 @@ COMPETENCY_QUESTIONS = {
               ?province a abans:Province .
             }""",
     },
+    "cq15": {
+        "text": "List all products with their capacity, where available",
+        "type": "OPTIONAL",
+        "query": """
+            SELECT ?product ?capacity WHERE {
+              ?product a abans:Product .
+              OPTIONAL { ?product abans:hasCapacity ?capacity }
+            }""",
+    },
 }
 
 app = FastAPI(title="Abans Ontology Competency Question API")

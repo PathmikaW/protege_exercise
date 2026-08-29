@@ -6,3 +6,6 @@ desktop.ini
 assignment/.venv/
 assignment/__pycache__/
 **/__pycache__/
+*.mp4
+*.webm
+*.mov
