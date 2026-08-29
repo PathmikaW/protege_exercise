@@ -1,49 +1,24 @@
-REQUIRED DELIVERABLES CHECKLIST
-Index No: 258843A | Name: Weerarathna T.M.P.
-IT5432 - Semantic Web and Ontological Engineering
-================================================================
+Required Deliverables Checklist - 258843A
 
-Per Section 5 ("Required Deliverables") of the assignment brief.
-Full detail for each item is in 258843A_Assignment_Report.docx;
-this file is a quick-scan summary.
+Just going through section 5 of the brief to make sure I have everything before submitting.
 
-[x] 1. Ontology file (.owl, .rdf, or .ttl format)
-    -> abans.owl, included in this Submission folder and in the
-       GitHub repository (assignment/abans.owl).
+1. Ontology file - done, abans.owl is in this folder and also in the github repo.
 
-[x] 2. Reasoning evidence (screenshots or exported results)
-    -> Task 4's inferred-facts table (5+ inferred facts, each with
-       the axiom that produced it), with Protege "Individuals
-       (Inferred)" screenshots embedded inline in the report.
-    -> Additional query-result evidence throughout Task 5.
+2. Reasoning evidence - done. Put screenshots of the inferred individuals view into the report (Task 4), showing things like iPhone_15_Pro getting classified as SmartProduct/PremiumProduct etc without me asserting it directly. Also added the query results as evidence in Task 5.
 
-[x] 3. Ontology diagram included in the report
-    -> Embedded in Task 2 (Ontology Design) of the report.
+3. Ontology diagram - done, it's in the report under Task 2.
 
-[x] 4. Bonus application source code and setup instructions
-    -> Full source in the GitHub repository (assignment/backend/,
-       assignment/frontend/).
-    -> Setup and execution instructions in the Bonus Task section
-       of the report.
+4. Bonus app source code + setup instructions - source is on github (backend and frontend folders), setup steps are in the Bonus Task section of the report.
 
-[x] 5. Short presentation / live demonstration
-    -> 258843A_Ontology_Demo.mp4, included in this Submission folder.
+5. Presentation/demo - done, 258843A_Ontology_Demo.mp4 is in this folder.
 
-[x] Limitations and future improvements
-    -> Own standalone section in the report (5 limitations,
-       6 future improvements listed).
+Limitations and future improvements - added as its own section in the report.
 
-[x] Conclusion
-    -> Own section in the report.
+Conclusion - added.
 
-[x] References
-    -> Own section in the report (Abans/buyabans.com, Protege,
-       rdflib, FastAPI, Streamlit).
+References - added (Abans website, Protege, rdflib, FastAPI, Streamlit).
 
-================================================================
-Also included, beyond the minimum requirement:
-- AI-Assistance Acknowledgment section (per Section 8, Academic
-  Integrity, of the brief).
-- 15 SPARQL competency questions developed (minimum required: 8).
-- Bonus application covers 3 of the 6 listed capabilities
-  (minimum required: 2).
+Extra stuff I did beyond what was asked:
+- 15 SPARQL queries instead of the minimum 8
+- app covers 3 of the 6 listed capabilities instead of the minimum 2
+- added a note about AI assistance since the brief specifically asks for that to be acknowledged
