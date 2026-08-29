@@ -172,13 +172,13 @@ doc.add_paragraph(
     "genuine business rule rather than added to satisfy a count:"
 )
 restr = [
-    ("Necessary condition", "Product ⊑ hasBrand some Brand", "every product must have a brand"),
-    ("Existential restriction", "SmartProduct ≡ Product ⊓ hasFeature some SmartFeature", "at least one smart feature"),
-    ("Universal restriction + closure", "FullySmartProduct ≡ Product ⊓ hasFeature only (SmartFeature ⊔ WiFiFeature ⊔ BluetoothFeature)", "every feature must be smart-related"),
-    ("Datatype facet restriction", "PremiumProduct ≡ Product ⊓ hasPrice some xsd:decimal[>=150000]", "numeric price threshold"),
-    ("Complement class", "BudgetProduct ≡ Product ⊓ ¬PremiumProduct", "not premium"),
-    ("Cardinality restriction", "FullyLoadedProduct ≡ Product ⊓ hasFeature min 3", "3 or more distinct features"),
-    ("Nested restriction", "ColomboAvailableProduct ≡ Product ⊓ availableAt some (Showroom ⊓ locatedIn value Colombo)", "available at a Colombo showroom"),
+    ("Necessary condition", "Product SubClassOf: hasBrand some Brand", "every product must have a brand"),
+    ("Existential restriction", "SmartProduct EquivalentTo: Product and hasFeature some SmartFeature", "at least one smart feature"),
+    ("Universal restriction + closure", "FullySmartProduct EquivalentTo: Product and hasFeature only (SmartFeature or WiFiFeature or BluetoothFeature)", "every feature must be smart-related"),
+    ("Datatype facet restriction", "PremiumProduct EquivalentTo: Product and hasPrice some xsd:decimal[>=150000]", "numeric price threshold"),
+    ("Complement class", "BudgetProduct EquivalentTo: Product and not PremiumProduct", "not premium"),
+    ("Cardinality restriction", "FullyLoadedProduct EquivalentTo: Product and hasFeature min 3", "3 or more distinct features"),
+    ("Nested restriction", "ColomboAvailableProduct EquivalentTo: Product and availableAt some (Showroom and locatedIn value Colombo)", "available at a Colombo showroom"),
 ]
 add_table(["Restriction type", "Example axiom", "Business justification"], restr)
 
@@ -227,7 +227,7 @@ doc.add_paragraph(
     "created - each is a consequence the reasoner derived from the axioms."
 )
 inferred = [
-    ("iPhone_15_Pro is a SmartProduct", "SmartProduct ≡ Product ⊓ hasFeature some SmartFeature; iPhone_15_Pro has a SmartFeature asserted"),
+    ("iPhone_15_Pro is a SmartProduct", "SmartProduct EquivalentTo: Product and hasFeature some SmartFeature; iPhone_15_Pro has a SmartFeature asserted"),
     ("iPhone_15_Pro is a PremiumProduct", "PremiumProduct's datatype facet hasPrice some xsd:decimal[>=150000]; iPhone_15_Pro's price is 385,000"),
     ("iPhone_15_Pro is a FullyLoadedProduct", "Cardinality restriction hasFeature min 3; iPhone_15_Pro has exactly 3 features asserted"),
     ("LG_65_OLED_TV is an EcoFriendlyProduct", "hasEnergyRating some (A++ or A+++); LG_65_OLED_TV's rating is A++"),
