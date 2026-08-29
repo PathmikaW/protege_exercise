@@ -85,9 +85,12 @@ be available in the Western Province, without me stating that directly.
 
 **Show:** Ontology metrics panel
 
-**Say:** In total, the ontology has around 24 classes, 20 properties, and
-18 real product individuals, fully reasoner-verified with no
-inconsistencies.
+**Say:** In total, the ontology has 47 classes, 15 properties, and 59
+individuals — 598 axioms altogether. Twelve of those classes are fully
+defined, which is what lets the reasoner classify things into them
+automatically. Of the 59 individuals, 18 are actual products — the rest
+are brands, showrooms, and feature markers. All fully reasoner-verified,
+no inconsistencies.
 
 ---
 
